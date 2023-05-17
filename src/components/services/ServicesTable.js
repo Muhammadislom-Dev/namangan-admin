@@ -33,7 +33,6 @@ export default function ServicesTable() {
     deleteServiceById(id);
   };
 
-  console.log(data);
 
   return (
     <>
@@ -79,7 +78,7 @@ export default function ServicesTable() {
                   <TableRow key={service.id}>
                     <TableCell width={200}>
                       <img
-                        src={`${IMAGE_URL + service.images}`}
+                        src={`${IMAGE_URL + service.image_src}`}
                         height={50}
                         style={{
                           objectFit: "contain",

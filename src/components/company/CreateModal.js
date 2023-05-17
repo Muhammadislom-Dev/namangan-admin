@@ -76,6 +76,13 @@ export default function CreateModal() {
                 name="name_en"
                 required
               />
+              <TextField
+                sx={{ width: 350 }}
+                style={{ marginBottom: "10px" }}
+                label="Name UZ"
+                name="name_uz"
+                required
+              />
             </div>
           </DialogContent>
           <DialogActions>

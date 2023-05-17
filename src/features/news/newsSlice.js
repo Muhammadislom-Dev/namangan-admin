@@ -16,7 +16,7 @@ const initialState = {
     singleNewsError: undefined,
 };
 
-const prefix = 'sliders';
+const prefix = 'news';
 const workerPrefix = prefix;
 const editWorkerPrefix = `${prefix}/edit`;
 const createWorkerPrefix = `${prefix}/create`;
@@ -25,7 +25,7 @@ const getOneWorkerPrefix = `${prefix}/getOne`;
 
 export const fetchNews = createAsyncThunk(workerPrefix, async (_, thunkAPI) => {
     try {
-        const { data } = await axios.get('sliders');
+        const { data } = await axios.get('news');
         return data;
     } catch (e) {
         const message = getErrorMessage(e);
@@ -38,7 +38,7 @@ export const createNews = createAsyncThunk(
     async (formData, thunkAPI) => {
         try {
             const { data } = await axios.post(
-                'sliders',
+                'news',
                 formData,
                 withToken(true)
             );
@@ -56,7 +56,7 @@ export const deleteNewsById = createAsyncThunk(
     deleteWorkerPrefix,
     async (id, thunkAPI) => {
         try {
-            const { message } = await axios.delete(`sliders/${id}`, withToken());
+            const { message } = await axios.delete(`news/${id}`, withToken());
             notify('News was deleted  successfully', 'success');
             return message;
         } catch (e) {
@@ -71,7 +71,7 @@ export const fetchNewsById = createAsyncThunk(
     getOneWorkerPrefix,
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.get(`sliders/${id}`);
+            const { data } = await axios.get(`news/${id}`);
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -85,7 +85,7 @@ export const updateNewsById = createAsyncThunk(
     async (options, thunkAPI) => {
         try {
             const { message } = await axios.put(
-                `sliders/${options.id}`,
+                `news/${options.id}`,
                 options.formData,
                 withToken(true)
             );
@@ -104,7 +104,7 @@ export const updateStatusNews = createAsyncThunk(
     async (options, thunkAPI) => {
         try {
             const { message } = await axios.put(
-                `sliders/${options.id}`,
+                `news/${options.id}`,
                 options.formData,
                 withToken(true)
             );

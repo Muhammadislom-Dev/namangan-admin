@@ -123,14 +123,6 @@ export default function NewsTable() {
     setPage(0);
   };
 
-  //   const setPrimary = (oldNews, evt) => {
-  //     let newObj = { ...oldNews };
-  //     newObj["is_primary"] = evt.target.checked;
-  //     console.log(newObj);
-  //     updateStatusNews({ id: newObj["id"], formData: newObj });
-  //   };
-
-
   return (
     <>
       {singleNewsLoading ? (
@@ -172,7 +164,7 @@ export default function NewsTable() {
                     <TableRow key={element.id}>
                       <TableCell width={200}>
                         <img
-                          src={`${IMAGE_URL + element.src}`}
+                          src={`${IMAGE_URL + element.image_src}`}
                           height={50}
                           style={{
                             objectFit: "contain"
@@ -180,6 +172,7 @@ export default function NewsTable() {
                         />
                       </TableCell>
                       <TableCell>{element.title_ru}</TableCell>
+                      <TableCell>{element.title_uz}</TableCell>
                       <TableCell align="right">
                         <div
                           style={{

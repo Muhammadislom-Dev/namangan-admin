@@ -36,9 +36,13 @@ export default function CreateModal() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     createNews({
-      file: data.get("file"),
+      images: data.get("images"),
       title_en: data.get("title_en"),
       title_ru: data.get("title_ru"),
+      title_uz: data.get("title_uz"),
+      text_en: data.get("text_en"),
+      text_ru: data.get("text_ru"),
+      text_uz: data.get("text_uz"),
     });
     handleClose();
   };
@@ -72,18 +76,12 @@ export default function CreateModal() {
                   marginRight: "20px",
                   fontSize: "1rem",
                 }}
-                name="file"
+                name="images"
                 type="file"
                 required
               />
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-                justifyContent: "space-between",
-              }}>
+            <div>
               <TextField
                 sx={{ width: 550, marginBottom: "10px" }}
                 label="Title RU"
@@ -96,6 +94,38 @@ export default function CreateModal() {
                 sx={{ width: 550, marginBottom: "10px" }}
                 label="Title EN"
                 name="title_en"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title UZ"
+                name="title_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_ru"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_en"
                 required
               />
             </div>

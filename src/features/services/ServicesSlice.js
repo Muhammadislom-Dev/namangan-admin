@@ -16,7 +16,7 @@ const initialState = {
   singleServiceError: undefined
 };
 
-const prefix = "products";
+const prefix = "sliders";
 const workerPrefix = prefix;
 const editWorkerPrefix = `${prefix}/edit`;
 const createWorkerPrefix = `${prefix}/create`;
@@ -27,7 +27,7 @@ export const fetchServices = createAsyncThunk(
   workerPrefix,
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get("products");
+      const { data } = await axios.get("sliders");
       return data;
     } catch (e) {
       const message = getErrorMessage(e);
@@ -40,12 +40,11 @@ export const createService = createAsyncThunk(
   createWorkerPrefix,
   async (formData, thunkAPI) => {
     try {
-      const { data } = await axios.post("products", formData, withToken(true));
+      const { data } = await axios.post("sliders", formData, withToken(true));
       notify("Service was created successfully", "success");
       return data;
     } catch (e) {
       const message = getErrorMessage(e);
-      // redirectToLogin(message);
       return thunkAPI.rejectWithValue(message);
     }
   }
@@ -55,12 +54,11 @@ export const deleteServiceById = createAsyncThunk(
   deleteWorkerPrefix,
   async (id, thunkAPI) => {
     try {
-      const { message } = await axios.delete(`products/${id}`, withToken());
+      const { message } = await axios.delete(`sliders/${id}`, withToken());
       notify("Service was deleted  successfully", "success");
       return message;
     } catch (e) {
       const message = getErrorMessage(e);
-      // redirectToLogin(message);
       return thunkAPI.rejectWithValue(message);
     }
   }
@@ -70,7 +68,7 @@ export const fetchServiceById = createAsyncThunk(
   getOneWorkerPrefix,
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.get(`products/${id}`);
+      const { data } = await axios.get(`sliders/${id}`);
       return data;
     } catch (e) {
       const message = getErrorMessage(e);
@@ -83,9 +81,8 @@ export const updateServiceById = createAsyncThunk(
   editWorkerPrefix,
   async (options, thunkAPI) => {
     try {
-      console.log(options);
       const { message } = await axios.put(
-        `products/${options.id}`,
+        `sliders/${options.id}`,
         options.formData,
         withToken(true)
       );

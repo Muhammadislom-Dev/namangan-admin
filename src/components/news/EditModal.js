@@ -41,16 +41,24 @@ export default function EditModal({ id }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const formData = data.get("img_src")
+    const formData = data.get("images")
       ? {
-          file: data.get("file"),
+          images: data.get("images"),
           title_en: data.get("title_en"),
           title_ru: data.get("title_ru"),
+          title_uz: data.get("title_uz"),
+          text_en: data.get("text_en"),
+          text_ru: data.get("text_ru"),
+          text_uz: data.get("text_uz"),
         }
       : {
-          file: data.get("file"),
+          images: data.get("images"),
           title_en: data.get("title_en"),
           title_ru: data.get("title_ru"),
+          title_uz: data.get("title_uz"),
+          text_en: data.get("text_en"),
+          text_ru: data.get("text_ru"),
+          text_uz: data.get("text_uz"),
         };
     updateNewsById({
       id,
