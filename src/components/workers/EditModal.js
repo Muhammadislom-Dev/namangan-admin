@@ -20,7 +20,7 @@ export default function EditModal({ id }) {
   const { updateWorkerById, fetchWorkerById, fetchCompanies } = useActions();
   const { workers, workersLoading } = useSelector((state) => state.workers);
   const {
-    companies: { data },
+    companies: {},
   } = useSelector((state) => state.companies);
 
   React.useEffect(() => {

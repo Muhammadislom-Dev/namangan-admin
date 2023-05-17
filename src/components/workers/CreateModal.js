@@ -29,7 +29,7 @@ export default function CreateModal() {
 
   const { createWorker, fetchCompanies } = useActions();
   const {
-    companies: { data },
+    companies: {},
   } = useSelector((state) => state.companies);
 
   React.useEffect(() => {

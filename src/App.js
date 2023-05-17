@@ -6,10 +6,6 @@ import MiniDrawer from "./components/sidebar";
 import PrivateRoute from "./components/layout/PrivateRoute";
 import CompanyTable from "./components/company/CompanyTable";
 import ProductTable from "./components/products/ProductTable";
-import NewsTable from "./components/news/NewsTable";
-import TypesTable from "./components/types/TypesTable";
-import AboutTable from "./components/about/AboutTable";
-import WorkersTable from "./components/workers/WorkersTable";
 import ServicesTable from "./components/services/ServicesTable";
 
 function App() {
@@ -21,9 +17,7 @@ function App() {
           <MiniDrawer>
             <PrivateRoute component={CompanyTable} exact />
             <PrivateRoute component={ProductTable} path="/products" exact />
-            <PrivateRoute component={ServicesTable} path="/services" />
-            {/* <PrivateRoute component={WorkersTable} path="/news" exact /> */}
-            {/* <PrivateRoute component={AboutTable} path="/workers" exact /> */}
+            <PrivateRoute component={ServicesTable} path="/services" exact />
           </MiniDrawer>
         </div>
       </Switch>
