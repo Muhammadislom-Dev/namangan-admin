@@ -65,19 +65,10 @@ export default function StatisticsTable() {
             </TableHead>
             <TableBody>
               {data?.length > 0 &&
-                data.map((company) => (
+                data?.map((company) => (
                   <TableRow key={company.id}>
-                    <TableCell width={200}>
-                      <img
-                        src={`${IMAGE_URL + element.image_src}`}
-                        height={50}
-                        style={{
-                          objectFit: "contain",
-                        }}
-                      />
-                    </TableCell>
-                    <TableCell>{element.title_ru}</TableCell>
-                    <TableCell>{element.title_uz}</TableCell>
+                    <TableCell>{company.title_ru}</TableCell>
+                    <TableCell>{company.title_uz}</TableCell>
                     <TableCell align="right">
                       <div
                         style={{
