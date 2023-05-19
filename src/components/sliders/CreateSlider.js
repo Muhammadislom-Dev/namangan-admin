@@ -29,15 +29,15 @@ export default function CreateModal() {
 
   const { createNews } = useActions();
   const {
-    workers: { data }
+    workers: { data },
   } = useSelector((state) => state.workers);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     createNews({
-      image: data.get("image"),
-      video_src: data.get("video_src")
+      images: data.get("images"),
+      video_src: data.get("video_src"),
     });
     handleClose();
   };
@@ -52,35 +52,21 @@ export default function CreateModal() {
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
+        aria-describedby="alert-dialog-slide-description">
         <DialogTitle>{"Add company"}</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-                justifyContent: "space-between"
-              }}
-            >
+            <div>
               <input
                 id="image-input"
                 className="form-control"
                 style={{
                   width: "250px",
                   marginRight: "20px",
-                  fontSize: "1rem"
+                  fontSize: "1rem",
                 }}
-                name="image"
+                name="images"
                 type="file"
-                required
-              />
-              <TextField
-                sx={{ width: 230 }}
-                label="Video SRC"
-                name="video_src"
                 required
               />
             </div>

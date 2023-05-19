@@ -16,7 +16,7 @@ const initialState = {
     singleTypeError: undefined,
 };
 
-const prefix = 'types';
+const prefix = 'sources';
 const companyPrefix = prefix;
 const editCompanyPrefix = `${prefix}/edit`;
 const createCompanyPrefix = `${prefix}/create`;
@@ -27,7 +27,7 @@ export const fetchTypes = createAsyncThunk(
     companyPrefix,
     async (_, thunkAPI) => {
         try {
-            const { data } = await axios.get('promotions');
+            const { data } = await axios.get('sources');
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -41,7 +41,7 @@ export const createType = createAsyncThunk(
     async (formData, thunkAPI) => {
         try {
             const { data } = await axios.post(
-                'promotions',
+                'sources',
                 formData,
                 withToken(true)
             );
@@ -60,7 +60,7 @@ export const deleteTypeById = createAsyncThunk(
     async (id, thunkAPI) => {
         try {
             const { message } = await axios.delete(
-                `promotions/${id}`,
+                `sources/${id}`,
                 withToken()
             );
             notify('Discount was deleted  successfully', 'success');
@@ -77,7 +77,7 @@ export const fetchTypeById = createAsyncThunk(
     getOneCompanyPrefix,
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.get(`promotions/${id}`);
+            const { data } = await axios.get(`sources/${id}`);
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -91,7 +91,7 @@ export const updateTypeById = createAsyncThunk(
     async (options, thunkAPI) => {
         try {
             const { message } = await axios.put(
-                `promotions/${options.id}`,
+                `sources/${options.id}`,
                 options.formData,
                 withToken(true)
             );

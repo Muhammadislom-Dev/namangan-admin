@@ -11,6 +11,7 @@ import NewsTable from "./components/news/NewsTable";
 import StatisticsTable from "./components/statistics/StatisticsTable";
 import WorkersTable from "./components/workers/WorkersTable";
 import AboutTable from "./components/about/AboutTable";
+import TypesTable from "./components/types/TypesTable";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <PrivateRoute component={StatisticsTable} path="/arxiv" exact />
             <PrivateRoute component={WorkersTable} path="/actions" exact />
             <PrivateRoute component={AboutTable} path="/about" exact />
+            <PrivateRoute component={TypesTable} path="/partners" exact />
           </MiniDrawer>
         </div>
       </Switch>

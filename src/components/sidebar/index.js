@@ -329,6 +329,34 @@ export default function MiniDrawer({ children }) {
                 />
               </ListItemButton>
             </Link>
+            <Link
+              to={"/partners"}
+              style={{
+                color: "rgba(0, 0, 0, 0.87)`",
+                textDecoration: "none",
+              }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                }}>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                  }}>
+                  <ProductionQuantityLimitsIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Hamkorlar"
+                  sx={{
+                    opacity: open ? 1 : 0,
+                  }}
+                />
+              </ListItemButton>
+            </Link>
           </ListItem>
         </List>
       </Drawer>

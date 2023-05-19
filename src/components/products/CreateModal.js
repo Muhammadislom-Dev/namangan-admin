@@ -41,11 +41,12 @@ export default function CreateModal() {
     const data = new FormData(event.currentTarget);
     createProduct({
       images: data.get("images"),
-      description_ru: data.get("description_ru"),
-      description_en: data.get("description_en"),
+      text_en: data.get("text_en"),
+      text_ru: data.get("text_ru"),
+      text_uz: data.get("text_uz"),
       title_ru: data.get("title_ru"),
       title_en: data.get("title_en"),
-      price: data.get("price"),
+      title_uz: data.get("title_uz"),
       category_id: data.get("category_id"),
     });
     handleClose();
@@ -73,6 +74,7 @@ export default function CreateModal() {
                 justifyContent: "space-between",
               }}>
               <input
+                id="image-input"
                 className="form-control"
                 style={{
                   width: "250px",
@@ -87,46 +89,51 @@ export default function CreateModal() {
             <div>
               <TextField
                 sx={{ width: 550, marginBottom: "10px" }}
-                label="title_ru"
+                label="Title RU"
                 name="title_ru"
-                multiline
-                maxRows={4}
                 required
               />
             </div>
-            <TextField
-              sx={{ width: 550, marginBottom: "10px" }}
-              label="title_en"
-              name="title_en"
-              multiline
-              maxRows={4}
-              required
-            />
-            <TextField
-              sx={{ width: 550, marginBottom: "10px" }}
-              label="price"
-              name="price"
-              multiline
-              maxRows={4}
-              required
-            />
-
-            <TextField
-              sx={{ width: 550, marginBottom: "10px" }}
-              label="description_en"
-              name="description_en"
-              multiline
-              maxRows={4}
-              required
-            />
-            <TextField
-              sx={{ width: 550, marginBottom: "10px" }}
-              label="description_ru"
-              name="description_ru"
-              multiline
-              maxRows={4}
-              required
-            />
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title EN"
+                name="title_en"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title UZ"
+                name="title_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_ru"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_en"
+                required
+              />
+            </div>
             <div
               style={{
                 display: "flex",

@@ -44,20 +44,22 @@ export default function EditModal({ id }) {
     const formData = data.get("image")
       ? {
           images: data.get("images"),
-          description_ru: data.get("description_ru"),
-          description_en: data.get("description_en"),
+          text_en: data.get("text_en"),
+          text_ru: data.get("text_ru"),
+          text_uz: data.get("text_uz"),
           title_ru: data.get("title_ru"),
           title_en: data.get("title_en"),
-          price: data.get("price"),
+          title_uz: data.get("title_uz"),
           category_id: data.get("category_id"),
         }
       : {
           images: data.get("images"),
-          description_ru: data.get("description_ru"),
-          description_en: data.get("description_en"),
+          text_en: data.get("text_en"),
+          text_ru: data.get("text_ru"),
+          text_uz: data.get("text_uz"),
           title_ru: data.get("title_ru"),
           title_en: data.get("title_en"),
-          price: data.get("price"),
+          title_uz: data.get("title_uz"),
           category_id: data.get("category_id"),
         };
     updateProductById({
