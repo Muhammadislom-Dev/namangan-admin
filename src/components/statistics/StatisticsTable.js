@@ -66,25 +66,29 @@ export default function StatisticsTable() {
             <TableBody>
               {data?.length > 0 &&
                 data?.map((company) => (
-                  <TableRow key={company.id}>
-                    <TableCell>{company.title_ru}</TableCell>
-                    <TableCell>{company.title_uz}</TableCell>
-                    <TableCell align="right">
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "flex-end",
-                        }}>
-                        <EditModal id={company.id} />
-                        <Button
-                          color="error"
-                          onClick={handleDelete.bind(null, company.id)}>
-                          Delete
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                  <>
+                    {company.news.map((evt) => (
+                      <TableRow key={evt.id}>
+                        <TableCell>{evt.title_ru}</TableCell>
+                        <TableCell>{evt.title_uz}</TableCell>
+                        <TableCell align="right">
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                            }}>
+                            <EditModal id={evt.id} />
+                            <Button
+                              color="error"
+                              onClick={handleDelete.bind(null, evt.id)}>
+                              Delete
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </>
                 ))}
             </TableBody>
           </Table>
