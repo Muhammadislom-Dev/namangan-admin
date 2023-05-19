@@ -52,7 +52,12 @@ export default function WorkersTable() {
                 </TableCell>
                 <TableCell>
                   <b>
-                    <i>full_name_uz</i>
+                    <i>Title</i>
+                  </b>
+                </TableCell>
+                <TableCell>
+                  <b>
+                    <i>Title RU</i>
                   </b>
                 </TableCell>
                 <TableCell align="right">
@@ -64,7 +69,17 @@ export default function WorkersTable() {
               {data?.length > 0 &&
                 data.map((worker) => (
                   <TableRow key={worker.id}>
+                    <TableCell width={200}>
+                      <img
+                        src={`${IMAGE_URL + worker.image_src}`}
+                        height={50}
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </TableCell>
                     <TableCell>{worker.title_ru}</TableCell>
+                    <TableCell>{worker.title_uz}</TableCell>
                     <TableCell align="right">
                       <div
                         style={{

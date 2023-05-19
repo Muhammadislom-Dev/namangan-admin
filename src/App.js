@@ -8,6 +8,9 @@ import CompanyTable from "./components/company/CompanyTable";
 import ProductTable from "./components/products/ProductTable";
 import ServicesTable from "./components/services/ServicesTable";
 import NewsTable from "./components/news/NewsTable";
+import StatisticsTable from "./components/statistics/StatisticsTable";
+import WorkersTable from "./components/workers/WorkersTable";
+import AboutTable from "./components/about/AboutTable";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <PrivateRoute component={ProductTable} path="/products" exact />
             <PrivateRoute component={ServicesTable} path="/services" exact />
             <PrivateRoute component={NewsTable} path="/news" exact />
+            <PrivateRoute component={StatisticsTable} path="/arxiv" exact />
+            <PrivateRoute component={WorkersTable} path="/actions" exact />
+            <PrivateRoute component={AboutTable} path="/about" exact />
           </MiniDrawer>
         </div>
       </Switch>

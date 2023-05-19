@@ -32,12 +32,13 @@ export default function CreateModal() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     createStatistics({
-      key: data.get("key"),
-      key_ru: data.get("key_ru"),
-      key_en: data.get("key_en"),
-      value: data.get("value"),
-      value_ru: data.get("value_ru"),
-      value_en: data.get("value_en")
+      images: data.get("images"),
+      title_en: data.get("title_en"),
+      title_ru: data.get("title_ru"),
+      title_uz: data.get("title_uz"),
+      text_en: data.get("text_en"),
+      text_ru: data.get("text_ru"),
+      text_uz: data.get("text_uz"),
     });
     handleClose();
   };
@@ -52,8 +53,7 @@ export default function CreateModal() {
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
+        aria-describedby="alert-dialog-slide-description">
         <DialogTitle>{"Add company"}</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
@@ -62,61 +62,66 @@ export default function CreateModal() {
                 display: "flex",
                 alignItems: "center",
                 marginBottom: "10px",
-                justifyContent: "space-between"
-              }}
-            >
-              <TextField
-                sx={{ width: 230, marginRight: "30px" }}
-                label="Title"
-                name="key"
+                justifyContent: "space-between",
+              }}>
+              <input
+                id="image-input"
+                className="form-control"
+                style={{
+                  width: "250px",
+                  marginRight: "20px",
+                  fontSize: "1rem",
+                }}
+                name="images"
+                type="file"
                 required
               />
+            </div>
+            <div>
               <TextField
-                sx={{ width: 230 }}
+                sx={{ width: 550, marginBottom: "10px" }}
                 label="Title RU"
-                name="key_ru"
+                name="title_ru"
                 required
               />
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-                justifyContent: "space-between"
-              }}
-            >
+            <div>
               <TextField
-                sx={{ width: 230 }}
+                sx={{ width: 550, marginBottom: "10px" }}
                 label="Title EN"
-                name="key_en"
-                required
-              />
-              <TextField
-                sx={{ width: 230 }}
-                label="Count"
-                name="value_en"
+                name="title_en"
                 required
               />
             </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
-                justifyContent: "space-between"
-              }}
-            >
+            <div>
               <TextField
-                sx={{ width: 230 }}
-                label="Count"
-                name="value"
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title UZ"
+                name="title_uz"
                 required
               />
+            </div>
+            <div>
               <TextField
-                sx={{ width: 230 }}
-                label="Count"
-                name="value_ru"
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_ru"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="text_en"
                 required
               />
             </div>

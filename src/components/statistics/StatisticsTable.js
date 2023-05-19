@@ -40,26 +40,20 @@ export default function StatisticsTable() {
           <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
             <TableHead
               style={{
-                backgroundColor: "rgb(220, 220, 220)"
-              }}
-            >
+                backgroundColor: "rgb(220, 220, 220)",
+              }}>
               <TableRow>
-                <TableCell align="center">
+                <TableCell>
                   <b>
-                    <i>Count</i>
+                    <i>Image</i>
                   </b>
                 </TableCell>
-                <TableCell align="center">
-                  <b>
-                    <i>Count</i>
-                  </b>
-                </TableCell>
-                <TableCell align="center">
+                <TableCell>
                   <b>
                     <i>Title</i>
                   </b>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell>
                   <b>
                     <i>Title RU</i>
                   </b>
@@ -73,23 +67,28 @@ export default function StatisticsTable() {
               {data?.length > 0 &&
                 data.map((company) => (
                   <TableRow key={company.id}>
-                    <TableCell align="center">{company.key}</TableCell>
-                    <TableCell align="center">{company.key_ru}</TableCell>
-                    <TableCell align="center">{company.value}</TableCell>
-                    <TableCell align="center">{company.value_ru}</TableCell>
+                    <TableCell width={200}>
+                      <img
+                        src={`${IMAGE_URL + element.image_src}`}
+                        height={50}
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell>{element.title_ru}</TableCell>
+                    <TableCell>{element.title_uz}</TableCell>
                     <TableCell align="right">
                       <div
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "flex-end"
-                        }}
-                      >
+                          justifyContent: "flex-end",
+                        }}>
                         <EditModal id={company.id} />
                         <Button
                           color="error"
-                          onClick={handleDelete.bind(null, company.id)}
-                        >
+                          onClick={handleDelete.bind(null, company.id)}>
                           Delete
                         </Button>
                       </div>

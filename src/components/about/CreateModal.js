@@ -31,10 +31,16 @@ export default function CreateModal() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const newData = new FormData();
 
-    newData.append("images", data.get("images"));
-    createAbout(newData);
+    createAbout({
+      images: data.get("images"),
+      title_en: data.get("title_en"),
+      title_ru: data.get("title_ru"),
+      title_uz: data.get("title_uz"),
+      description_en: data.get("description_en"),
+      description_ru: data.get("description_ru"),
+      description_uz: data.get("description_uz"),
+    });
     handleClose();
   };
 
@@ -48,8 +54,7 @@ export default function CreateModal() {
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
+        aria-describedby="alert-dialog-slide-description">
         <DialogTitle>{"Add company"}</DialogTitle>
         <form onSubmit={handleSubmit}>
           <DialogContent>
@@ -58,18 +63,66 @@ export default function CreateModal() {
                 display: "flex",
                 alignItems: "center",
                 marginBottom: "10px",
-                justifyContent: "space-between"
-              }}
-            >
+                justifyContent: "space-between",
+              }}>
               <input
+                id="image-input"
                 className="form-control"
                 style={{
                   width: "250px",
                   marginRight: "20px",
-                  fontSize: "1rem"
+                  fontSize: "1rem",
                 }}
                 name="images"
                 type="file"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title RU"
+                name="title_ru"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title EN"
+                name="title_en"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Title UZ"
+                name="title_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="description_uz"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="description_ru"
+                required
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: 550, marginBottom: "10px" }}
+                label="Text UZ"
+                name="description_en"
                 required
               />
             </div>

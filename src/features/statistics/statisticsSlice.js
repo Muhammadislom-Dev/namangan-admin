@@ -15,7 +15,7 @@ const initialState = {
     singleStatisticsError: undefined,
 };
 
-const prefix = 'constants';
+const prefix = 'news/archives';
 const companyPrefix = prefix;
 const editCompanyPrefix = `${prefix}/edit`;
 const createStatisticsPrefix = `${prefix}/create`;
@@ -26,7 +26,7 @@ export const fetchStatistics = createAsyncThunk(
     companyPrefix,
     async (_, thunkAPI) => {
         try {
-            const { data } = await axios.get('constants');
+            const { data } = await axios.get('news/archives');
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -40,7 +40,7 @@ export const createStatistics = createAsyncThunk(
     async (formData, thunkAPI) => {
         try {
             const { data } = await axios.post(
-                'constants',
+                'news/archives',
                 formData,
                 withToken(true)
             );
@@ -59,7 +59,7 @@ export const deleteStatisticsById = createAsyncThunk(
     async (id, thunkAPI) => {
         try {
             const { message } = await axios.delete(
-                `constants/${id}`,
+                `news/archives/${id}`,
                 withToken()
             );
             notify('Statistics was deleted  successfully', 'success');
@@ -76,7 +76,7 @@ export const fetchStatisticsById = createAsyncThunk(
     getOneCompanyPrefix,
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.get(`constants/${id}`);
+            const { data } = await axios.get(`news/archives/${id}`);
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -90,7 +90,7 @@ export const updateStatisticsById = createAsyncThunk(
     async (options, thunkAPI) => {
         try {
             const { message } = await axios.put(
-                `constants/${options.id}`,
+                `news/archives/${options.id}`,
                 options.formData,
                 withToken(true)
             );

@@ -16,7 +16,7 @@ const initialState = {
     singleAboutError: undefined,
 };
 
-const prefix = 'clients';
+const prefix = 'about';
 const companyPrefix = prefix;
 const editCompanyPrefix = `${prefix}/edit`;
 const createAboutPrefix = `${prefix}/create`;
@@ -27,7 +27,7 @@ export const fetchAbout = createAsyncThunk(
     companyPrefix,
     async (_, thunkAPI) => {
         try {
-            const { data } = await axios.get('clients');
+            const { data } = await axios.get('about');
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -41,7 +41,7 @@ export const createAbout = createAsyncThunk(
     async (formData, thunkAPI) => {
         try {
             const { data } = await axios.post(
-                'clients',
+                'about',
                 formData,
                 withToken(true)
             );
@@ -59,7 +59,7 @@ export const deleteAboutById = createAsyncThunk(
     deleteCompanyPrefix,
     async (id, thunkAPI) => {
         try {
-            const { message } = await axios.delete(`clients/${id}`, withToken());
+            const { message } = await axios.delete(`about/${id}`, withToken());
             notify('About was deleted  successfully', 'success');
             return message;
         } catch (e) {
@@ -74,7 +74,7 @@ export const fetchAboutById = createAsyncThunk(
     getOneCompanyPrefix,
     async (id, thunkAPI) => {
         try {
-            const { data } = await axios.get(`clients/${id}`);
+            const { data } = await axios.get(`about/${id}`);
             return data;
         } catch (e) {
             const message = getErrorMessage(e);
@@ -88,7 +88,7 @@ export const updateAboutById = createAsyncThunk(
     async ({ newData, id }, thunkAPI) => {
         try {
             const { message } = await axios.put(
-                `clients/${id}`,
+                `about/${id}`,
                 newData,
                 withToken(true)
             );

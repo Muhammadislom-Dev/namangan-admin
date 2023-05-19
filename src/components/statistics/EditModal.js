@@ -37,16 +37,17 @@ export default function EditModal({ id }) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const formData = {
-      key: data.get("key"),
-      key_ru: data.get("key_ru"),
-      key_en: data.get("key_en"),
-      value: data.get("value"),
-      value_ru: data.get("value_ru"),
-      value_en: data.get("value_en")
+      images: data.get("images"),
+      title_en: data.get("title_en"),
+      title_ru: data.get("title_ru"),
+      title_uz: data.get("title_uz"),
+      text_en: data.get("text_en"),
+      text_ru: data.get("text_ru"),
+      text_uz: data.get("text_uz"),
     };
     updateStatisticsById({
       id,
-      formData
+      formData,
     });
     handleClose();
   };
@@ -61,8 +62,7 @@ export default function EditModal({ id }) {
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-      >
+        aria-describedby="alert-dialog-slide-description">
         <DialogTitle>{"Edit company"}</DialogTitle>
         {statistics?.data && !statisticsLoading && (
           <Box component={"form"} onSubmit={handleSubmit} noValidate>
@@ -72,9 +72,8 @@ export default function EditModal({ id }) {
                   display: "flex",
                   alignItems: "center",
                   marginBottom: "10px",
-                  justifyContent: "space-between"
-                }}
-              >
+                  justifyContent: "space-between",
+                }}>
                 <TextField
                   sx={{ width: 230, marginRight: "30px" }}
                   label="Title"
@@ -95,9 +94,8 @@ export default function EditModal({ id }) {
                   display: "flex",
                   alignItems: "center",
                   marginBottom: "10px",
-                  justifyContent: "space-between"
-                }}
-              >
+                  justifyContent: "space-between",
+                }}>
                 <TextField
                   sx={{ width: 230 }}
                   label="Title EN"
@@ -118,9 +116,8 @@ export default function EditModal({ id }) {
                   display: "flex",
                   alignItems: "center",
                   marginBottom: "10px",
-                  justifyContent: "space-between"
-                }}
-              >
+                  justifyContent: "space-between",
+                }}>
                 <TextField
                   sx={{ width: 230 }}
                   label="Title EN"

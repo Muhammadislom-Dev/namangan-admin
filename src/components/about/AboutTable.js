@@ -42,9 +42,8 @@ export default function AboutTable() {
           <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
             <TableHead
               style={{
-                backgroundColor: "rgb(220, 220, 220)"
-              }}
-            >
+                backgroundColor: "rgb(220, 220, 220)",
+              }}>
               <TableRow>
                 <TableCell align="center">
                   <b>
@@ -60,29 +59,28 @@ export default function AboutTable() {
               {data?.length > 0 &&
                 data.map((worker) => (
                   <TableRow key={worker.id}>
-                    <TableCell width={200} align="center">
+                    <TableCell width={200}>
                       <img
                         src={`${IMAGE_URL + worker.image_src}`}
-                        alt=""
                         height={50}
                         style={{
-                          objectFit: "contain"
+                          objectFit: "contain",
                         }}
                       />
                     </TableCell>
+                    <TableCell>{worker.title_ru}</TableCell>
+                    <TableCell>{worker.title_uz}</TableCell>
                     <TableCell align="right">
                       <div
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "flex-end"
-                        }}
-                      >
+                          justifyContent: "flex-end",
+                        }}>
                         <EditModal id={worker.id} />
                         <Button
                           color="error"
-                          onClick={handleDelete.bind(null, worker.id)}
-                        >
+                          onClick={handleDelete.bind(null, worker.id)}>
                           Delete
                         </Button>
                       </div>
