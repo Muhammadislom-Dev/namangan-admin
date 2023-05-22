@@ -48,15 +48,13 @@ function TablePaginationActions(props) {
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
-        aria-label="first page"
-      >
+        aria-label="first page">
         {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
       </IconButton>
       <IconButton
         onClick={handleBackButtonClick}
         disabled={page === 0}
-        aria-label="previous page"
-      >
+        aria-label="previous page">
         {theme.direction === "rtl" ? (
           <KeyboardArrowRight />
         ) : (
@@ -66,8 +64,7 @@ function TablePaginationActions(props) {
       <IconButton
         onClick={handleNextButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="next page"
-      >
+        aria-label="next page">
         {theme.direction === "rtl" ? (
           <KeyboardArrowLeft />
         ) : (
@@ -77,8 +74,7 @@ function TablePaginationActions(props) {
       <IconButton
         onClick={handleLastPageButtonClick}
         disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="last page"
-      >
+        aria-label="last page">
         {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </Box>
@@ -89,7 +85,7 @@ TablePaginationActions.propTypes = {
   count: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired
+  rowsPerPage: PropTypes.number.isRequired,
 };
 
 export default function NewsTable() {
@@ -100,7 +96,7 @@ export default function NewsTable() {
     (state) => state.news
   );
 
-  const { deleteServiceById, fetchNews, updateStatusNews } = useActions();
+  const { deleteNewsById, fetchNews, updateStatusNews } = useActions();
 
   React.useEffect(() => {
     fetchNews();
@@ -115,7 +111,7 @@ export default function NewsTable() {
   };
 
   const handleDelete = (id) => {
-    deleteServiceById(id);
+    deleteNewsById(id);
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -132,9 +128,8 @@ export default function NewsTable() {
           <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
             <TableHead
               style={{
-                backgroundColor: "rgb(220, 220, 220)"
-              }}
-            >
+                backgroundColor: "rgb(220, 220, 220)",
+              }}>
               <TableRow>
                 <TableCell>
                   <b>
@@ -167,7 +162,7 @@ export default function NewsTable() {
                           src={`${IMAGE_URL + element.image_src}`}
                           height={50}
                           style={{
-                            objectFit: "contain"
+                            objectFit: "contain",
                           }}
                         />
                       </TableCell>
@@ -178,14 +173,12 @@ export default function NewsTable() {
                           style={{
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "flex-end"
-                          }}
-                        >
+                            justifyContent: "flex-end",
+                          }}>
                           <EditModal id={element.id} />
                           <Button
                             color="error"
-                            onClick={handleDelete.bind(null, element?.id)}
-                          >
+                            onClick={handleDelete.bind(null, element?.id)}>
                             Delete
                           </Button>
                         </div>
@@ -203,9 +196,9 @@ export default function NewsTable() {
                   page={page}
                   SelectProps={{
                     inputProps: {
-                      "aria-label": "rows per page"
+                      "aria-label": "rows per page",
                     },
-                    native: true
+                    native: true,
                   }}
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
